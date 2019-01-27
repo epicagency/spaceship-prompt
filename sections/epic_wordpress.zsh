@@ -25,7 +25,7 @@ spaceship_epic_wordpress() {
   local 'epic_wordpress_version'
 
   if [[ -f Dockerfile ]]; then
-    epic_wordpress_version=$(grep wordpress Dockerfile | sed -re 's/.*:([0-9\-\.]+?)(-builder)?/\1/')
+    epic_wordpress_version=$(grep 'containers/wordpress' Dockerfile | sed -re 's/.*:([0-9\-\.]+?)(-builder)?/\1/')
   fi
 
   [[ -z $epic_wordpress_version || "$epic_wordpress_version" == "null" || "$epic_wordpress_version" == "undefined" ]] && return
